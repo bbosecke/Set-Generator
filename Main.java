@@ -1,8 +1,10 @@
 
+/**
+ * The main class for the SetGenerator program
+ */
+
 public class Main{
     public static void main(String[] args){
-        System.out.println("Welcome, Brodie");
-
         // Initialise an empty set.
         SetGenerator setGen = new SetGenerator();
 
@@ -18,19 +20,20 @@ public class Main{
         // boolean resultT = setGen.insert(8);
         // System.out.println("Working if true: " + resultT);
 
-        //setGen.getRandom();
+        // setGen.remove(8);
 
-        setGen.insert(60);
-        setGen.insert(50);
-        setGen.insert(30);
-        setGen.insert(40);
-        setGen.insert(60); //returns false as it already exists in the set
-        setGen.insert(10);
+        // System.out.println("The random val returned is: " +setGen.getRandom());
+        // setGen.printContents();
+        System.out.println(setGen.insert(5));
+        System.out.println(setGen.insert(61));
+        System.out.println(setGen.insert(21));
+        System.out.println(setGen.insert(2));
+        System.out.println(setGen.remove(8)); //returns false
+        System.out.println(setGen.insert(8));
+        System.out.println(setGen.remove(8));
+        System.out.println(setGen.insert(8));
+        setGen.printContents();
 
-        System.out.println("The random val returned is: " +setGen.getRandom());
-        setGen.contents();
-
-
-        //System.out.println(setGen.getRandom());
+        System.out.println("The random value returned from the set is: " + setGen.getRandom());
     }
 }

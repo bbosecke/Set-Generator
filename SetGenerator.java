@@ -76,7 +76,7 @@ class SetGenerator{
             System.out.print(arr.get(i) + " " );
         }
         System.out.println();
-        System.out.println(hash.entrySet());
+        System.out.println("HashMap contents: " + hash.entrySet());
     }
 }
 
