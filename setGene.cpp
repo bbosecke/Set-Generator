@@ -8,13 +8,15 @@ class SetGene {
 
 public:
     /** Initialize your data structure here. */
-        //Vector - "arrays that can change size"
-        std::vector<int> vec;
-        //Unordered_map - keyValue pairs with unique keys
-        std::unordered_map<int, int> map;
+    //Vector - "arrays that can change size"
+    vector<int> vec;
+    //Unordered_map - keyValue pairs with unique keys
+    unordered_map<int, int> map;
+
 
     /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
+        vec.push_back(val);
         return true;
     }
 
@@ -27,12 +29,26 @@ public:
     int getRandom() {
         return 0;
     }
+
+    //check contents of vector --> https://stackoverflow.com/questions/10750057/how-to-print-out-the-contents-of-a-vector 
+    void checkContentsVec() {
+        for(std::vector<int>::const_iterator i = vec.begin(); i != vec.end(); ++i)
+            std::cout << *i << ' '; 
+        std::cout << " " << endl;
+    }
 };
 
 
 //Program driver, this is where I call functions from, create object, etc...
 int main(){
     std::cout << "Welcome, Brodie" << std::endl;
+    SetGene obj;
+
+    //Test to see if initialized datastructures vec and map
+    obj.insert(1);
+    obj.insert(5);
+    obj.insert(2);
+    obj.checkContentsVec();
     
     return 0;
 }
