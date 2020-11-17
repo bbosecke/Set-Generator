@@ -21,3 +21,16 @@ Download all files (clone) into a repository, and cd your terminal into the dire
 
 To run the program, enter the following command,
     'java Main'
+
+
+---------------------------------------------------------------------
+
+Here is my solution to the cpp version of the setGene task.
+
+Vector and unordered_map are the cpp equivalents (not identical, but v similar properties).
+
+To compile, 
+    'g++ setGene.cpp -o exe'
+
+To run,
+    './exe'
