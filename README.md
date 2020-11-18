@@ -30,7 +30,7 @@ Here is my solution to the cpp version of the setGene task.
 Vector and unordered_map are the cpp equivalents (not identical, but v similar properties).
 
 To compile, 
-    'g++ setGene.cpp -o exe'
+    'g++ setGene.cpp -o exe' or 'g++ -std=c++11 setGene.cpp -o exe'
 
 To run,
     './exe'
