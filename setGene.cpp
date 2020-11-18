@@ -1,9 +1,9 @@
 #include <iostream>
-#include <string>
 #include <unordered_map>
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include <time.h>
 
 using namespace std;
 
@@ -58,9 +58,14 @@ public:
         return false;
     }
 
-    /** Get a random element from the set. */
+    /** Get a random element from the set. 
+    *
+    * rand() is pseudorandomly generated, srand is called in main() to remove the predictability of 'random' numbers
+    * and therefore the value returned from the set is truly random.
+    */
     int getRandom() {
-        return 0;
+        int random = rand() % vec.size();
+        return vec[random];
     }
 
     /**
@@ -92,7 +97,6 @@ int main(){
 
     SetGene obj;
 
-    //Test to see if initialized datastructures vec and map
     obj.insert(1);
     obj.insert(5);
     obj.insert(12);
@@ -101,11 +105,16 @@ int main(){
     obj.remove(12);
     obj.remove(13);
     obj.remove(5);
-    
-
+    obj.insert(23);
+    obj.insert(52);
     
     obj.checkContentsVec();
     obj.checkContentsMap();
     
+    //srand makes it truly random as the seed is initialized to the current time
+    srand (time(NULL));
+
+    std::cout << "The randomly returned value is: " << obj.getRandom() << endl;
+
     return 0;
 }
