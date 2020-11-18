@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,17 +19,13 @@ public:
     //Unordered_map - keyValue pairs with unique keys
     std::unordered_map<int, int> map;
 
-    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. 
-    * working insert into vec
-    *
-    * CHECKLIST : 
-    *       check that value is unique (map)
-    *       make changes to the unordered_map
-    */
+    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
         //check to see if the key is already in the unordered_map
         auto result = map.find(val); // how exactly does this work... https://www.youtube.com/watch?v=r01r8mEs9I4
         if(result != map.end()){
+            //prints contents of the val trying to be inserted - testing purposes
+            //std::cout << result->first << endl;
             return false;
         }   
         map[val] = i;
@@ -37,9 +34,28 @@ public:
         return true;
     }
 
-    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    /** Removes a value from the set. Returns true if the set contained the specified element. 
+    *
+    *   removes O(1) from the unordered_map, however cannot get a swap working, so using this way as a placeholder,
+    *   which I believe to be O(n) as it iterates through the vector to find the value index to remove
+    */
     bool remove(int val) {
-        return true;
+        auto result = map.find(val);
+        //enters if I NEED to remove from map + vec
+        if(result != map.end()){
+            //std::cout << result->first << " <- first second -> " << result->second << endl;
+            map.erase(val);
+            auto index = std::find(vec.begin(), vec.end(), val);
+            vec.erase(index);
+
+            // int posLast = vec.size()-1;
+            // int posVal = 1;
+            // //std::swap(vec[posVa;],vec[posLast]);
+            // //used swap with java, there's a swap function in <vector>
+            return true;
+        }
+        
+        return false;
     }
 
     /** Get a random element from the set. */
@@ -80,7 +96,12 @@ int main(){
     obj.insert(1);
     obj.insert(5);
     obj.insert(12);
+    obj.insert(22);
     obj.insert(12);
+    obj.remove(12);
+    obj.remove(13);
+    obj.remove(5);
+    
 
     
     obj.checkContentsVec();
