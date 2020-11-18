@@ -27,15 +27,10 @@ public:
     */
     bool insert(int val) {
         //check to see if the key is already in the unordered_map
-        //if(map.contains(val)){
-        //   return false;
-        //}
-
-        //if(map.contains(val)){
-        //    std::cout << "HELLO" << std::endl;
-        //}
-
-        //makes ure these are the right way round, [key, value]
+        auto result = map.find(val); // how exactly does this work... https://www.youtube.com/watch?v=r01r8mEs9I4
+        if(result != map.end()){
+            return false;
+        }   
         map[val] = i;
         vec.push_back(val);
         i++;
@@ -86,6 +81,7 @@ int main(){
     obj.insert(5);
     obj.insert(12);
     obj.insert(12);
+
     
     obj.checkContentsVec();
     obj.checkContentsMap();
