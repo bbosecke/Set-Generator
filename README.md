@@ -29,8 +29,10 @@ Here is my solution to the cpp version of the setGene task.
 
 Vector and unordered_map are the cpp equivalents (not identical, but v similar properties).
 
+Lines 48/49 do not remove the given val from the vector in O(1). It currently iterates through the entire vector to find the value, and then remove it, therefore is O(n) worst case.
+
 To compile, 
-    'g++ setGene.cpp -o exe' or 'g++ -std=c++11 setGene.cpp -o exe'
+    'g++ -std=c++11 setGene.cpp -o exe'
 
 To run,
     './exe'
