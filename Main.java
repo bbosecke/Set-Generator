@@ -33,6 +33,7 @@ public class Main{
         System.out.println(setGen.remove(8));
         System.out.println(setGen.insert(8));
         setGen.printContents();
+        System.out.println("Hello world");
 
         System.out.println("The random value returned from the set is: " + setGen.getRandom());
     }
